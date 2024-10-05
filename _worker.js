@@ -1130,7 +1130,7 @@ function generateRemark(index, port, address, cleanIPs, protocol, configType) {
         ? addressType = 'Clean IP'
         : addressType = isDomain(address) ? 'Domain': isIPv4(address) ? 'IPv4' : isIPv6(address) ? 'IPv6' : '';
 
-    return `💦 ${index} - ${protocol}${type} - ${addressType} : ${port}`;
+    return `کانال تلگرام ما: t.me/bypassingsanction ${index} - ${protocol}${type} - ${addressType} : ${port}`;
 }
 
 function isDomain(address) {
@@ -1740,7 +1740,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
 		</style>
 	</head>
 	<body>
-		<h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> 💦</h1>
+		<h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> کانال تلگرام ما: t.me/bypassingsanction</h1>
 		<div class="form-container">
             <form id="configForm">
                 <details open>
@@ -2882,7 +2882,7 @@ async function renderLoginPage () {
     </head>
     <body>
         <div class="container">
-            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> 💦</h1>
+            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> کانال تلگرام ما: t.me/bypassingsanction</h1>
             <div class="form-container">
                 <h2>User Login</h2>
                 <form id="loginForm">
@@ -2968,7 +2968,7 @@ function renderErrorPage (message, error, refer) {
     </head>
     <body>
         <div id="error-container">
-            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> 💦</h1>
+            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> کانال تلگرام ما: t.me/bypassingsanction</h1>
             <div id="error-message">
                 <h2>${message} ${refer 
                     ? 'Please try again or refer to <a href="https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/README.md">documents</a>' 
@@ -3092,7 +3092,7 @@ async function buildWarpOutbounds (env, client, proxySettings, warpConfigs) {
 
         if (client === 'singbox' || client === 'hiddify') {
             let singboxOutbound = buildSingboxWarpOutbound(
-                client === 'hiddify' ? `💦 Warp Pro ${index + 1} 🇮🇷` : `💦 Warp ${index + 1} 🇮🇷`, 
+                client === 'hiddify' ? `کانال تلگرام ما: t.me/bypassingsanction Warp Pro ${index + 1} 🇮🇷` : `کانال تلگرام ما: t.me/bypassingsanction Warp ${index + 1} 🇮🇷`, 
                 warpIPv6, 
                 privateKey, 
                 publicKey, 
@@ -3112,7 +3112,7 @@ async function buildWarpOutbounds (env, client, proxySettings, warpConfigs) {
         }
 
         if (client === 'clash') {
-            let clashOutbound = buildClashWarpOutbound(`💦 Warp ${index + 1} 🇮🇷`, warpIPv6, privateKey, publicKey, endpoint, reserved, '');
+            let clashOutbound = buildClashWarpOutbound(`کانال تلگرام ما: t.me/bypassingsanction Warp ${index + 1} 🇮🇷`, warpIPv6, privateKey, publicKey, endpoint, reserved, '');
             warpOutbounds.push(clashOutbound);
         }
 
@@ -3171,8 +3171,8 @@ async function buildWoWOutbounds (env, client, proxySettings, warpConfigs) {
                     i === 1
                         ? `proxy-${index + 1}` 
                         : client === 'hiddify' 
-                            ? `💦 WoW Pro ${index + 1} 🌍` 
-                            : `💦 WoW ${index + 1} 🌍` , 
+                            ? `کانال تلگرام ما: t.me/bypassingsanction WoW Pro ${index + 1} 🌍` 
+                            : `کانال تلگرام ما: t.me/bypassingsanction WoW ${index + 1} 🌍` , 
                     warpIPv6, 
                     privateKey, 
                     publicKey, 
@@ -3193,7 +3193,7 @@ async function buildWoWOutbounds (env, client, proxySettings, warpConfigs) {
 
             if (client === 'clash') {
                 let clashOutbound = buildClashWarpOutbound(
-                    i === 1 ? `proxy-${index + 1}` : `💦 WoW ${index + 1} 🌍`, 
+                    i === 1 ? `proxy-${index + 1}` : `کانال تلگرام ما: t.me/bypassingsanction WoW ${index + 1} 🌍`, 
                     warpIPv6, 
                     privateKey, 
                     publicKey, 
@@ -3626,7 +3626,7 @@ async function buildXrayWorkerLessConfig(remoteDNS, localDNS, lengthMin,  length
     delete fakeOutbound.streamSettings.sockopt;
     fakeOutbound.streamSettings.wsSettings.path = '/';
     let fragConfig = structuredClone(xrayConfigTemp);
-    fragConfig.remarks  = '💦 BPB F - WorkerLess ⭐'
+    fragConfig.remarks  = 'کانال تلگرام ما: t.me/bypassingsanction F - WorkerLess ⭐'
     fragConfig.dns = await buildXrayDNSObject('https://cloudflare-dns.com/dns-query', localDNS, blockAds, bypassIran, bypassChina, bypassLAN, blockPorn, true);
     fragConfig.outbounds[0].settings.domainStrategy = 'UseIP';
     fragConfig.outbounds[0].settings.fragment.length = `${lengthMin}-${lengthMax}`;
@@ -3763,7 +3763,7 @@ async function getXrayFragmentConfigs(env, hostName) {
     }
     
     let bestPing = structuredClone(balancerConfig);
-    bestPing.remarks = '💦 BPB F - Best Ping 💥';
+    bestPing.remarks = 'کانال تلگرام ما: t.me/bypassingsanction F - Best Ping 💥';
     bestPing.outbounds = [...outbounds, ...bestPing.outbounds];
     
     if (chainProxy) {
@@ -3773,7 +3773,7 @@ async function getXrayFragmentConfigs(env, hostName) {
     }
 
     let bestFragment = structuredClone(balancerConfig);
-    bestFragment.remarks = '💦 BPB F - Best Fragment 😎';
+    bestFragment.remarks = 'کانال تلگرام ما: t.me/bypassingsanction F - Best Fragment 😎';
     bestFragment.outbounds.splice(0,1);
     bestFragValues.forEach( (fragLength, index) => {
         bestFragment.outbounds.push({
@@ -3841,7 +3841,7 @@ async function getXrayWarpConfigs (env, client) {
     xrayWarpConfig.routing.rules[xrayWarpConfig.routing.rules.length - 1].outboundTag = 'proxy';
     delete xrayWarpConfig.observatory;
     delete xrayWarpConfig.routing.balancers;
-    xrayWarpBestPing.remarks = client === 'nikang' ? '💦 Warp Pro Best Ping 🚀' : '💦 Warp Best Ping 🚀';
+    xrayWarpBestPing.remarks = client === 'nikang' ? 'کانال تلگرام ما: t.me/bypassingsanction Warp Pro Best Ping 🚀' : 'کانال تلگرام ما: t.me/bypassingsanction Warp Best Ping 🚀';
     xrayWarpBestPing.dns = await buildXrayDNSObject('1.1.1.1', localDNS, blockAds, bypassIran, bypassChina, bypassLAN, blockPorn, false);
     xrayWarpBestPing.routing.rules = buildXrayRoutingRules(localDNS, blockAds, bypassIran, blockPorn, bypassLAN, bypassChina, blockUDP443, false, true, false, true);
     xrayWarpBestPing.outbounds.splice(0,1);
@@ -3857,7 +3857,7 @@ async function getXrayWarpConfigs (env, client) {
     xrayWarpOutbounds.forEach((outbound, index) => {
         xrayWarpConfigs.push({
             ...xrayWarpConfig,
-            remarks: client === 'nikang' ? `💦 Warp Pro ${index + 1} 🇮🇷` : `💦 Warp ${index + 1} 🇮🇷`,
+            remarks: client === 'nikang' ? `کانال تلگرام ما: t.me/bypassingsanction Warp Pro ${index + 1} 🇮🇷` : `کانال تلگرام ما: t.me/bypassingsanction Warp ${index + 1} 🇮🇷`,
             outbounds: [{...outbound, tag: 'proxy'}, ...xrayWarpConfig.outbounds]
         });
     });
@@ -3868,7 +3868,7 @@ async function getXrayWarpConfigs (env, client) {
             let xrayWoWConfig = structuredClone(xrayWoWConfigTemp);
             const chainOutbound = structuredClone(outbound);
             const proxyOutbound = structuredClone(xrayWoWOutbounds[index + 1]);
-            xrayWoWConfig.remarks = client === 'nikang' ? `💦 WoW Pro ${proxyIndex} 🌍` : `💦 WoW ${proxyIndex} 🌍`;
+            xrayWoWConfig.remarks = client === 'nikang' ? `کانال تلگرام ما: t.me/bypassingsanction WoW Pro ${proxyIndex} 🌍` : `کانال تلگرام ما: t.me/bypassingsanction WoW ${proxyIndex} 🌍`;
             xrayWoWConfig.routing.rules[xrayWoWConfig.routing.rules.length - 1].outboundTag = 'chain';
             xrayWoWConfig.outbounds = [ chainOutbound, proxyOutbound, ...xrayWoWConfig.outbounds ];
             xrayWarpConfigs.push(xrayWoWConfig);
@@ -3881,7 +3881,7 @@ async function getXrayWarpConfigs (env, client) {
     });
 
     let xrayWoWBestPing = structuredClone(xrayWarpBestPing);
-    xrayWoWBestPing.remarks = client === 'nikang' ? '💦 WoW Pro Best Ping 🚀' : '💦 WoW Best Ping 🚀';
+    xrayWoWBestPing.remarks = client === 'nikang' ? 'کانال تلگرام ما: t.me/bypassingsanction WoW Pro Best Ping 🚀' : 'کانال تلگرام ما: t.me/bypassingsanction WoW Best Ping 🚀';
     xrayWoWBestPing.routing.balancers[0].selector = ['chain'];
     xrayWoWBestPing.observatory.subjectSelector = ['chain'];
     xrayWarpBestPing.outbounds = [...xrayWarpOutbounds, ...xrayWarpBestPing.outbounds];
@@ -4043,7 +4043,7 @@ function buildClashChainOutbound(chainProxyParams) {
 
     const { hostName, port, uuid, flow, security, type, sni, fp, alpn, pbk, sid, spx, headerType, host, path, authority, serviceName, mode } = chainProxyParams;
     let chainOutbound = {
-        "name": "💦 Chain Best Ping 💥",
+        "name": "کانال تلگرام ما: t.me/bypassingsanction Chain Best Ping 💥",
         "type": "vless",
         "server": hostName,
         "port": +port,
@@ -4051,7 +4051,7 @@ function buildClashChainOutbound(chainProxyParams) {
         "uuid": uuid,
         "flow": flow,
         "network": type,
-        "dialer-proxy": "💦 Best Ping 💥"
+        "dialer-proxy": "کانال تلگرام ما: t.me/bypassingsanction Best Ping 💥"
     };
 
     if (security === 'tls') {
@@ -4167,11 +4167,11 @@ async function getClashConfig (env, hostName, isWarp) {
     }
 
     if (isWarp) {
-        config['proxy-groups'][0].proxies = ['💦 Warp Best Ping 🚀', '💦 WoW Best Ping 🚀'];
-        config['proxy-groups'][1].name = '💦 Warp Best Ping 🚀';
+        config['proxy-groups'][0].proxies = ['کانال تلگرام ما: t.me/bypassingsanction Warp Best Ping 🚀', 'کانال تلگرام ما: t.me/bypassingsanction WoW Best Ping 🚀'];
+        config['proxy-groups'][1].name = 'کانال تلگرام ما: t.me/bypassingsanction Warp Best Ping 🚀';
         config['proxy-groups'][1].interval = +bestWarpInterval;
         config['proxy-groups'].splice(2, 0, structuredClone(config['proxy-groups'][1]));
-        config['proxy-groups'][2].name = '💦 WoW Best Ping 🚀';
+        config['proxy-groups'][2].name = 'کانال تلگرام ما: t.me/bypassingsanction WoW Best Ping 🚀';
         const clashWarpOutbounds = await buildWarpOutbounds(env, 'clash', proxySettings, warpConfigs);
         const clashWOWpOutbounds = await buildWoWOutbounds(env, 'clash', proxySettings, warpConfigs);
         config.proxies = [...clashWarpOutbounds, ...clashWOWpOutbounds];
@@ -4187,8 +4187,8 @@ async function getClashConfig (env, hostName, isWarp) {
         });
 
     } else {
-        config['proxy-groups'][0].proxies = ['💦 Best Ping 💥'];
-        config['proxy-groups'][1].name = '💦 Best Ping 💥';
+        config['proxy-groups'][0].proxies = ['کانال تلگرام ما: t.me/bypassingsanction Best Ping 💥'];
+        config['proxy-groups'][1].name = 'کانال تلگرام ما: t.me/bypassingsanction Best Ping 💥';
         config['proxy-groups'][1].interval = +bestVLESSTrojanInterval;
     }
 
@@ -4718,15 +4718,15 @@ async function getSingboxConfig (env, hostName, client, isWarp, isFragment) {
         const WOWOutbounds = await buildWoWOutbounds(env, client, proxySettings, warpConfigs);
         config.dns.servers[0].address = '1.1.1.1';
         config.outbounds[0].outbounds = client === 'hiddify'
-            ? ["💦 Warp Pro Best Ping 🚀", "💦 WoW Pro Best Ping 🚀"]
-            : ["💦 Warp Best Ping 🚀", "💦 WoW Best Ping 🚀"];
+            ? ["کانال تلگرام ما: t.me/bypassingsanction Warp Pro Best Ping 🚀", "کانال تلگرام ما: t.me/bypassingsanction WoW Pro Best Ping 🚀"]
+            : ["کانال تلگرام ما: t.me/bypassingsanction Warp Best Ping 🚀", "کانال تلگرام ما: t.me/bypassingsanction WoW Best Ping 🚀"];
         config.outbounds.splice(2, 0, structuredClone(config.outbounds[1]));
         config.outbounds[1].tag = client === 'hiddify' 
-            ? "💦 Warp Pro Best Ping 🚀"
-            : "💦 Warp Best Ping 🚀";
+            ? "کانال تلگرام ما: t.me/bypassingsanction Warp Pro Best Ping 🚀"
+            : "کانال تلگرام ما: t.me/bypassingsanction Warp Best Ping 🚀";
         config.outbounds[2].tag = client === 'hiddify'
-            ? "💦 WoW Pro Best Ping 🚀"
-            : "💦 WoW Best Ping 🚀";
+            ? "کانال تلگرام ما: t.me/bypassingsanction WoW Pro Best Ping 🚀"
+            : "کانال تلگرام ما: t.me/bypassingsanction WoW Best Ping 🚀";
         config.outbounds.push(...warpOutbounds, ...WOWOutbounds);
         warpOutbounds.forEach(outbound => {
             config.outbounds[0].outbounds.push(outbound.tag);
@@ -4873,7 +4873,7 @@ async function getNormalConfigs(env, hostName, client) {
     });
 
     if (outProxy) {
-        let chainRemark = `#${encodeURIComponent('💦 Chain proxy 🔗')}`;
+        let chainRemark = `#${encodeURIComponent('کانال تلگرام ما: t.me/bypassingsanction Chain proxy 🔗')}`;
         if (outProxy.startsWith('socks') || outProxy.startsWith('http')) {
             const regex = /^(?:socks|http):\/\/([^@]+)@/;
             const isUserPass = outProxy.match(regex);
@@ -5075,11 +5075,11 @@ const singboxConfigTemp = {
         {
             type: "selector",
             tag: "proxy",
-            outbounds: ["💦 Best Ping 💥"]
+            outbounds: ["کانال تلگرام ما: t.me/bypassingsanction Best Ping 💥"]
         },
         {
             type: "urltest",
-            tag: "💦 Best Ping 💥",
+            tag: "کانال تلگرام ما: t.me/bypassingsanction Best Ping 💥",
             outbounds: [],
             url: "https://www.gstatic.com/generate_204",
             interval: "30s",
