@@ -1129,7 +1129,7 @@ function generateRemark(index, port, address, cleanIPs, protocol, configType) {
         ? addressType = 'Clean IP'
         : addressType = isDomain(address) ? 'Domain': isIPv4(address) ? 'IPv4' : isIPv6(address) ? 'IPv6' : '';
 
-    return `💦 ${index} - ${protocol}${type} - ${addressType} : ${port}`;
+    return `کانال تلگرام ما: t.me/bypassingsanction ${index} - ${protocol}${type} - ${addressType} : ${port}`;
 }
 
 function isDomain(address) {
@@ -1719,7 +1719,7 @@ function renderHomePage (proxySettings, hostName, isPassSet) {
         </style>
     </head>
     <body>
-        <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> 💦</h1>
+        <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> کانال تلگرام ما: t.me/bypassingsanction</h1>
         <div class="form-container">
             <form id="configForm">
                 <details open>
@@ -2920,7 +2920,7 @@ function renderLoginPage () {
     </head>
     <body>
         <div class="container">
-            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> 💦</h1>
+            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> کانال تلگرام ما: t.me/bypassingsanction</h1>
             <div class="form-container">
                 <h2>User Login</h2>
                 <form id="loginForm">
@@ -3003,7 +3003,7 @@ function renderErrorPage (message, error, refer) {
     </head>
     <body>
         <div id="error-container">
-            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> 💦</h1>
+            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> کانال تلگرام ما: t.me/bypassingsanction</h1>
             <div id="error-message">
                 <h2>${message} ${refer 
                     ? 'Please try again or refer to <a href="https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/README.md">documents</a>' 
@@ -3679,7 +3679,7 @@ function buildXrayConfig (proxySettings, remark, isFragment, isBalancer, isChain
 }
 
 async function buildXrayBestPingConfig(proxySettings, totalAddresses, chainProxy, outbounds, isFragment) {
-    const remark = isFragment ? '💦 BPB F - Best Ping 💥' : '💦 BPB - Best Ping 💥';
+    const remark = isFragment ? 'کانال تلگرام ما: t.me/bypassingsanction F - Best Ping 💥' : 'کانال تلگرام ما: t.me/bypassingsanction - Best Ping 💥';
     let config = buildXrayConfig(proxySettings, remark, isFragment, true, chainProxy, chainProxy ? 'chain-2' : 'prox-2');
     config.dns = await buildXrayDNS(proxySettings, totalAddresses, undefined);
     config.routing.rules = buildXrayRoutingRules(proxySettings, totalAddresses, chainProxy, true, false);
@@ -3693,7 +3693,7 @@ async function buildXrayBestFragmentConfig(proxySettings, hostName, chainProxy, 
                             '70-80', '80-90', '90-100', '10-30', '20-40', '30-50', 
                             '40-60', '50-70', '60-80', '70-90', '80-100', '100-200'];
 
-    let config = buildXrayConfig(proxySettings, '💦 BPB F - Best Fragment 😎', true, true, chainProxy, undefined, false);
+    let config = buildXrayConfig(proxySettings, 'کانال تلگرام ما: t.me/bypassingsanction F - Best Fragment 😎', true, true, chainProxy, undefined, false);
     config.dns = await buildXrayDNS(proxySettings, [], hostName);
     config.routing.rules = buildXrayRoutingRules(proxySettings, [], chainProxy, true, false);
     const fragment = config.outbounds.shift();
@@ -3722,7 +3722,7 @@ async function buildXrayBestFragmentConfig(proxySettings, hostName, chainProxy, 
 }
 
 async function buildXrayWorkerLessConfig(proxySettings) {
-    let config = buildXrayConfig(proxySettings, '💦 BPB F - WorkerLess ⭐', true, false, false, undefined, false);
+    let config = buildXrayConfig(proxySettings, 'کانال تلگرام ما: t.me/bypassingsanction F - WorkerLess ⭐', true, false, false, undefined, false);
     config.dns = await buildXrayDNS(proxySettings, [], undefined, true);
     config.routing.rules = buildXrayRoutingRules(proxySettings, [], false, false, true);
     let fakeOutbound = buildXrayVLESSOutbound('fake-outbound', 'google.com', '443', userID, 'google.com', 'google.com', '', true, false);
@@ -3830,8 +3830,8 @@ async function getXrayWarpConfigs (proxySettings, warpConfigs, client) {
     
     for (const [index, endpoint] of warpEndpoints.split(',').entries()) {
         const endpointHost = endpoint.split(':')[0];
-        let warpConfig = buildXrayConfig(proxySettings, `💦 ${index + 1} - Warp${proIndicator}🇮🇷`, false, false, false, undefined, true);
-        let WoWConfig = buildXrayConfig(proxySettings, `💦 ${index + 1} - WoW${proIndicator}🌍`, false, false, true, undefined, true);
+        let warpConfig = buildXrayConfig(proxySettings, `کانال تلگرام ما: t.me/bypassingsanction ${index + 1} - Warp${proIndicator}🇮🇷`, false, false, false, undefined, true);
+        let WoWConfig = buildXrayConfig(proxySettings, `کانال تلگرام ما: t.me/bypassingsanction ${index + 1} - WoW${proIndicator}🌍`, false, false, true, undefined, true);
         warpConfig.dns = WoWConfig.dns = await buildXrayDNS(proxySettings, [endpointHost], undefined, false, true);    
         warpConfig.routing.rules = buildXrayRoutingRules(proxySettings, [endpointHost], false, false, false);
         WoWConfig.routing.rules = buildXrayRoutingRules(proxySettings, [endpointHost], true, false, false);
@@ -3853,11 +3853,11 @@ async function getXrayWarpConfigs (proxySettings, warpConfigs, client) {
     }
 
     const dnsObject = await buildXrayDNS(proxySettings, outboundDomains, undefined, false, true);
-    let xrayWarpBestPing = buildXrayConfig(proxySettings, `💦 Warp${proIndicator}- Best Ping 🚀`, false, true, false, undefined, true);
+    let xrayWarpBestPing = buildXrayConfig(proxySettings, `کانال تلگرام ما: t.me/bypassingsanction Warp${proIndicator}- Best Ping 🚀`, false, true, false, undefined, true);
     xrayWarpBestPing.dns = dnsObject;    
     xrayWarpBestPing.routing.rules = buildXrayRoutingRules(proxySettings, outboundDomains, false, true, false);
     xrayWarpBestPing.outbounds.unshift(...xrayWarpOutbounds);
-    let xrayWoWBestPing = buildXrayConfig(proxySettings, `💦 WoW${proIndicator}- Best Ping 🚀`, false, true, true, undefined, true);
+    let xrayWoWBestPing = buildXrayConfig(proxySettings, `کانال تلگرام ما: t.me/bypassingsanction WoW${proIndicator}- Best Ping 🚀`, false, true, true, undefined, true);
     xrayWoWBestPing.dns = dnsObject;
     xrayWoWBestPing.routing.rules = buildXrayRoutingRules(proxySettings, outboundDomains, true, true, false);
     xrayWoWBestPing.outbounds.unshift(...xrayWoWOutbounds, ...xrayWarpOutbounds);
@@ -4052,7 +4052,7 @@ function buildClashChainOutbound(chainProxyParams) {
 
     const { hostName, port, uuid, flow, security, type, sni, fp, alpn, pbk, sid, headerType, host, path, serviceName } = chainProxyParams;
     let chainOutbound = {
-        "name": "💦 Chain Best Ping 💥",
+        "name": "کانال تلگرام ما: t.me/bypassingsanction Chain Best Ping 💥",
         "type": "vless",
         "server": hostName,
         "port": +port,
@@ -4060,7 +4060,7 @@ function buildClashChainOutbound(chainProxyParams) {
         "uuid": uuid,
         "flow": flow,
         "network": type,
-        "dialer-proxy": "💦 Best Ping 💥"
+        "dialer-proxy": "کانال تلگرام ما: t.me/bypassingsanction Best Ping 💥"
     };
 
     if (security === 'tls') {
@@ -4122,17 +4122,17 @@ async function getClashWarpConfig(proxySettings, warpConfigs) {
     config.rules = buildClashRoutingRules(proxySettings);
     const selector = config['proxy-groups'][0];
     const warpUrlTest = config['proxy-groups'][1];
-    selector.proxies = ['💦 Warp - Best Ping 🚀', '💦 WoW - Best Ping 🚀'];
-    warpUrlTest.name = '💦 Warp - Best Ping 🚀';
+    selector.proxies = ['کانال تلگرام ما: t.me/bypassingsanction Warp - Best Ping 🚀', 'کانال تلگرام ما: t.me/bypassingsanction WoW - Best Ping 🚀'];
+    warpUrlTest.name = 'کانال تلگرام ما: t.me/bypassingsanction Warp - Best Ping 🚀';
     warpUrlTest.interval = +proxySettings.bestWarpInterval;
     config['proxy-groups'].push(structuredClone(warpUrlTest));
     const WoWUrlTest = config['proxy-groups'][2];
-    WoWUrlTest.name = '💦 WoW - Best Ping 🚀';
+    WoWUrlTest.name = 'کانال تلگرام ما: t.me/bypassingsanction WoW - Best Ping 🚀';
     let warpRemarks = [], WoWRemarks = [];
     
     warpEndpoints.split(',').forEach( (endpoint, index) => {
-        const warpRemark = `💦 ${index + 1} - Warp 🇮🇷`;
-        const WoWRemark = `💦 ${index + 1} - WoW 🌍`;
+        const warpRemark = `کانال تلگرام ما: t.me/bypassingsanction ${index + 1} - Warp 🇮🇷`;
+        const WoWRemark = `کانال تلگرام ما: t.me/bypassingsanction ${index + 1} - WoW 🌍`;
         const warpOutbound = buildClashWarpOutbound(warpConfigs, warpRemark, endpoint, '');
         const WoWOutbound = buildClashWarpOutbound(warpConfigs, WoWRemark, endpoint, warpRemark);
         config.proxies.push(WoWOutbound, warpOutbound);
@@ -4183,8 +4183,8 @@ async function getClashNormalConfig (env, proxySettings, hostName) {
     config.rules = buildClashRoutingRules(proxySettings);
     const selector = config['proxy-groups'][0];
     const urlTest = config['proxy-groups'][1];
-    selector.proxies = ['💦 Best Ping 💥'];
-    urlTest.name = '💦 Best Ping 💥';
+    selector.proxies = ['کانال تلگرام ما: t.me/bypassingsanction Best Ping 💥'];
+    urlTest.name = 'کانال تلگرام ما: t.me/bypassingsanction Best Ping 💥';
     urlTest.interval = +bestVLESSTrojanInterval;
     const Addresses = await getConfigAddresses(hostName, cleanIPs, enableIPv6);
     const customCdnAddresses = customCdnAddrs ? customCdnAddrs.split(',') : [];
@@ -4764,18 +4764,18 @@ async function getSingBoxWarpConfig (proxySettings, warpConfigs, client) {
     const selector = config.outbounds[0];
     const warpUrlTest = config.outbounds[1];
     const proIndicator = client === 'hiddify' ? ' Pro ' : ' ';
-    selector.outbounds = [`💦 Warp${proIndicator}- Best Ping 🚀`, `💦 WoW${proIndicator}- Best Ping 🚀`];
+    selector.outbounds = [`کانال تلگرام ما: t.me/bypassingsanction Warp${proIndicator}- Best Ping 🚀`, `کانال تلگرام ما: t.me/bypassingsanction WoW${proIndicator}- Best Ping 🚀`];
     config.outbounds.splice(2, 0, structuredClone(warpUrlTest));
     const WoWUrlTest = config.outbounds[2];
-    warpUrlTest.tag = `💦 Warp${proIndicator}- Best Ping 🚀`;
+    warpUrlTest.tag = `کانال تلگرام ما: t.me/bypassingsanction Warp${proIndicator}- Best Ping 🚀`;
     warpUrlTest.interval = `${proxySettings.bestWarpInterval}s`;
-    WoWUrlTest.tag = `💦 WoW${proIndicator}- Best Ping 🚀`;
+    WoWUrlTest.tag = `کانال تلگرام ما: t.me/bypassingsanction WoW${proIndicator}- Best Ping 🚀`;
     WoWUrlTest.interval = `${proxySettings.bestWarpInterval}s`;
     let warpRemarks = [], WoWRemarks = [];
 
     warpEndpoints.split(',').forEach( (endpoint, index) => {
-        const warpRemark = `💦 ${index + 1} - Warp 🇮🇷`;
-        const WoWRemark = `💦 ${index + 1} - WoW 🌍`;
+        const warpRemark = `کانال تلگرام ما: t.me/bypassingsanction ${index + 1} - Warp 🇮🇷`;
+        const WoWRemark = `کانال تلگرام ما: t.me/bypassingsanction ${index + 1} - WoW 🌍`;
         const warpOutbound = buildSingBoxWarpOutbound(proxySettings, warpConfigs, warpRemark, endpoint, '', client);
         const WoWOutbound = buildSingBoxWarpOutbound(proxySettings, warpConfigs, WoWRemark, endpoint, warpRemark, client);
         config.outbounds.push(WoWOutbound, warpOutbound);
@@ -4831,9 +4831,9 @@ async function getSingBoxCustomConfig(env, proxySettings, hostName, client, isFr
     config.route.rule_set = rule_set;
     const selector = config.outbounds[0];
     const urlTest = config.outbounds[1];
-    selector.outbounds = ['💦 Best Ping 💥'];
+    selector.outbounds = ['کانال تلگرام ما: t.me/bypassingsanction Best Ping 💥'];
     urlTest.interval = `${bestVLESSTrojanInterval}s`;
-    urlTest.tag = '💦 Best Ping 💥';
+    urlTest.tag = 'کانال تلگرام ما: t.me/bypassingsanction Best Ping 💥';
     const Addresses = await getConfigAddresses(hostName, cleanIPs, enableIPv6);
     const customCdnAddresses = customCdnAddrs ? customCdnAddrs.split(',') : [];
     const totalAddresses = [...Addresses, ...customCdnAddresses];
@@ -4952,7 +4952,7 @@ async function getNormalConfigs(proxySettings, hostName, client) {
     });
 
     if (outProxy) {
-        let chainRemark = `#${encodeURIComponent('💦 Chain proxy 🔗')}`;
+        let chainRemark = `#${encodeURIComponent('کانال تلگرام ما: t.me/bypassingsanction Chain proxy 🔗')}`;
         if (outProxy.startsWith('socks') || outProxy.startsWith('http')) {
             const regex = /^(?:socks|http):\/\/([^@]+)@/;
             const isUserPass = outProxy.match(regex);
